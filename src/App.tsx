@@ -1,11 +1,10 @@
 import {Navigate, Route, Routes} from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
-import {useSelector} from "react-redux";
-import type {RootState} from "./store";
+import ChangePasswordPage from "./pages/ChangePasswordPage.tsx";
 
 function App() {
-    const token = useSelector((state: RootState) => state.auth.token);
+    const token = localStorage.getItem("accessToken");
 
     return (
         <Routes>
@@ -21,10 +20,10 @@ function App() {
             {/*    path="/account-info"*/}
             {/*    element={token ? <DashboardPage/> : <Navigate to="/authApi" replace/>}*/}
             {/*/>*/}
-            {/*<Route*/}
-            {/*    path="/change-password"*/}
-            {/*    element={token ? <DashboardPage/> : <Navigate to="/authApi" replace/>}*/}
-            {/*/>*/}
+            <Route
+                path="/change-password"
+                element={token ? <ChangePasswordPage/> : <Navigate to="/login" replace/>}
+            />
             {/*<Route*/}
             {/*  path="*"*/}
             {/*  element={<Navigate to={token ? "/dashboard" : "/authApi"} replace />}*/}

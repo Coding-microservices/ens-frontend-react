@@ -9,7 +9,8 @@ const DashboardHeader: React.FC = () => {
 
     const handleLogout = async () => {
         await logout();
-        localStorage.removeItem("token");
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
         navigate("/login");
         navigate(0);
     };

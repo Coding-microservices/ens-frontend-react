@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Form, Input, Button, Error} from "./LoginStyles";
-import {authApi} from "../../api/authApi.ts";
+import {login} from "../../api/authApi.ts";
 
 const LoginForm: React.FC = () => {
     const navigate = useNavigate();
@@ -14,8 +14,9 @@ const LoginForm: React.FC = () => {
         setError("");
 
         try {
-            const response = await authApi(email, password);
-            localStorage.setItem("token", response.tokens.accessToken);
+            const response = await login(email, password);
+            localStorage.setItem("accessToken", response.tokens.accessToken);
+            localStorage.setItem("refreshToken", response.tokens.refreshToken);
             navigate("/dashboard");
             navigate(0);
         } catch {
