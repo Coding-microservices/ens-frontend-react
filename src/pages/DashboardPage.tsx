@@ -5,7 +5,6 @@ import {Wrapper} from "../components/Dashboard/DashboardStyles";
 
 const DashboardPage: React.FC = () => {
 
-
     return (
         <Wrapper>
             <DashboardHeader/>

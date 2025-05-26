@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {Dropdown, DropdownItem, MenuButton, MenuContainer} from "./UserMenuStyles.ts";
+import {logout} from "../../api/authApi.ts";
 
 const UserMenu: React.FC = () => {
     const [open, setOpen] = useState(false);
@@ -18,9 +19,12 @@ const UserMenu: React.FC = () => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
+    const handleLogout = async () => {
+        await logout();
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
         navigate("/login");
+        navigate(0);
     };
 
     return (

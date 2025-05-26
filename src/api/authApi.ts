@@ -62,3 +62,4 @@ export const changePassword = async function (currentPassword: string, newPasswo
         };
     }
 }
+

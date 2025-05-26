@@ -9,11 +9,12 @@ export const Wrapper = styled.div`
 export const Header = styled.header`
     background-color: #3f51b5;
     color: white;
-    padding: 1rem 2rem;
+    //padding: 1rem 2rem;
     font-size: 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 `;
 
 export const Content = styled.main`
@@ -30,6 +31,34 @@ export const HeaderWrapper = styled.header`
     align-items: center;
 `;
 
-export const Title = styled.h1`
-    font-size: 1.5rem;
+export const ButtonGroup = styled.div`
+    display: flex;
+    align-items: center;
+    //gap: 12px;
 `;
+
+export const Title = styled.span`
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 20px;
+`;
+
+export const NavButton = styled.button`
+    background: transparent;
+    //border: 1px solid white;
+    border: none;
+    color: white;
+    padding: 20px 60px;
+    cursor: pointer;
+    //border-radius: 0px;
+    transition: 0.2s ease;
+    font-size: 20px;
+
+    &:hover {
+        background: #FFFFFF20;
+        //color: #282c34;
+    }
+`;
+
+
+
